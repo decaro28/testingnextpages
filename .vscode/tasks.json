@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Download current file to Desktop",
+      "type": "shell",
+      "command": "cp \"${file}\" \"$HOME/Desktop/\"",
+      "problemMatcher": []
+    }
+  ]
+}
