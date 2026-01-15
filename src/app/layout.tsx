@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Prisma",
   description: "Template starter (placeholder)",
   icons: {
-    icon: "/prismalogo.png",
+    icon: "/prismalogobig.png",
   },
 };
 
