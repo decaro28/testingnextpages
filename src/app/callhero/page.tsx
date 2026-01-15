@@ -93,102 +93,115 @@ export default function CallHeroPage() {
 
   return (
     <main className="min-h-screen">
-      <PremiumBackground intensity={1.1}>
-        <section className="relative min-h-screen overflow-hidden text-foreground">
+      <PremiumBackground
+        intensity={1.1}
+        factor={0}
+        speed={110}
+        starColor="rgba(226,203,255,0.55)"
+      >
+        <section className="relative min-h-screen text-foreground">
           <div className="relative z-10">
             <CallHeroNavbar items={navItems} />
 
             <div
               ref={rootRef}
-              className="mx-auto max-w-7xl px-6 pb-16 pt-24 md:pt-32"
+              className="mx-auto max-w-7xl px-6 pb-6 pt-24 md:pt-32"
             >
               <div className="mx-auto max-w-5xl text-center">
-              <h1
-                data-hero
-                className="text-balance text-6xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl"
-              >
-                <span className="bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent">
-                  Wait, That Was AI?
-                </span>
-              </h1>
-
-              <p
-                data-hero
-                className="my-10 text-balance text-3xl font-bold leading-tight text-white sm:my-12 sm:text-4xl"
-              >
-              We turn missed calls into loyal customers using the cutting edge of AI voice
-              </p>
-
-              <div
-                data-hero
-                className="mt-8 flex flex-wrap items-center justify-center gap-3"
-              >
-                <MagicBorderButton
-                  asChild
-                  size="lg"
-                  wrapperClassName="h-11 rounded-full"
-                  className="rounded-full px-7"
+                <h1
+                  data-hero
+                  className="text-balance text-6xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl"
                 >
-                  <a href="tel:+14168071489">
-                    <PhoneSolidIcon className="size-4" />
-                    Call Our Demo Agent
-                  </a>
-                </MagicBorderButton>
-              </div>
+                  <span className="bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent">
+                    Wait, That Was AI?
+                  </span>
+                </h1>
 
-              <div
-                data-hero
-                className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3"
-              >
-                {features.map((feature, index) => (
-                  <div
-                    key={feature.title}
-                    onMouseEnter={() => setHoveredFeature(index)}
-                    onMouseLeave={() => setHoveredFeature(null)}
-                    className={cn(
-                      "transition-all duration-300",
-                      hoveredFeature !== null &&
-                        hoveredFeature !== index &&
-                        "scale-[0.98] opacity-60 saturate-75",
-                    )}
+                <p
+                  data-hero
+                  className="my-10 text-balance text-3xl font-bold leading-tight text-white sm:my-12 sm:text-4xl"
+                >
+                Your phone rings. Most businesses miss it. We don’t.
+                </p>
+
+                <div
+                  data-hero
+                  className="mt-14 flex flex-col items-center justify-center gap-6"
+                >
+                  <MagicBorderButton
+                    asChild
+                    size="lg"
+                    wrapperClassName="h-12 rounded-full sm:h-14"
+                    className="rounded-full px-8 text-base sm:px-10 sm:text-lg"
                   >
-                    <GlareCard containerClassName="max-w-none">
-                      <div className="group relative flex h-full flex-col items-center justify-between px-8 py-10 text-center">
-                        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[calc(var(--radius)-1px)]">
-                          <img
-                            src={feature.imageSrc}
-                            alt=""
-                            aria-hidden="true"
-                            style={
-                              {
-                                "--img-brightness": feature.imageBrightness,
-                              } as React.CSSProperties
-                            }
-                            className="h-full w-full scale-[1.05] object-cover opacity-45 transition duration-500 group-hover:opacity-60 [filter:grayscale(0.75)_brightness(var(--img-brightness))_contrast(1.1)]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/20 to-slate-950/70" />
-                          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/12 via-transparent to-rose-500/12 opacity-70" />
-                        </div>
-                        <h3 className="relative z-10 text-3xl font-extrabold tracking-tight">
-                          <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_22px_rgba(0,0,0,0.8))]">
-                            <span className="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-rose-300 bg-clip-text text-transparent">
-                              {feature.title}
-                            </span>
-                          </span>
-                        </h3>
-                        <p className="relative z-10 mt-6 max-w-[34ch] text-sm leading-relaxed text-white/90">
-                          <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_20px_rgba(0,0,0,0.8))]">
-                            {feature.description}
-                          </span>
-                        </p>
-                      </div>
-                    </GlareCard>
-                  </div>
-                ))}
+                    <a href="tel:+14168071489">
+                      <PhoneSolidIcon className="size-4" />
+                      Call Our Demo Agent
+                    </a>
+                  </MagicBorderButton>
+                  <p className="text-sm font-medium text-white/60 sm:text-base">
+                    Answers real inbound calls — instantly, 24/7.
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
-        </div>
+          <div className="pointer-events-none absolute inset-x-0 -bottom-[3px] flex items-center justify-center px-6">
+            <div className="h-px w-full max-w-3xl animate-pulse bg-gradient-to-r from-transparent via-white/60 to-transparent motion-reduce:animate-none" />
+          </div>
+        </section>
+
+        <section className="relative pb-24 pt-24 text-foreground">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature, index) => (
+                <div
+                  key={feature.title}
+                  onMouseEnter={() => setHoveredFeature(index)}
+                  onMouseLeave={() => setHoveredFeature(null)}
+                  className={cn(
+                    "transition-all duration-300",
+                    hoveredFeature !== null &&
+                      hoveredFeature !== index &&
+                      "scale-[0.98] opacity-60 saturate-75",
+                  )}
+                >
+                  <GlareCard containerClassName="max-w-none">
+                    <div className="group relative flex h-full flex-col items-center justify-between px-6 py-8 text-center sm:px-8 sm:py-10">
+                      <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[calc(var(--radius)-1px)]">
+                        <img
+                          src={feature.imageSrc}
+                          alt=""
+                          aria-hidden="true"
+                          style={
+                            {
+                              "--img-brightness": feature.imageBrightness,
+                            } as React.CSSProperties
+                          }
+                          className="h-full w-full scale-[1.05] object-cover opacity-45 transition duration-500 group-hover:opacity-60 [filter:grayscale(0.75)_brightness(var(--img-brightness))_contrast(1.1)]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/20 to-slate-950/70" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/12 via-transparent to-rose-500/12 opacity-70" />
+                      </div>
+                      <h3 className="relative z-10 text-2xl font-extrabold tracking-tight sm:text-3xl">
+                        <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_22px_rgba(0,0,0,0.8))]">
+                          <span className="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-rose-300 bg-clip-text text-transparent">
+                            {feature.title}
+                          </span>
+                        </span>
+                      </h3>
+                      <p className="relative z-10 mt-5 max-w-[34ch] text-sm leading-relaxed text-white/90 sm:mt-6 sm:text-base">
+                        <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_20px_rgba(0,0,0,0.8))]">
+                          {feature.description}
+                        </span>
+                      </p>
+                    </div>
+                  </GlareCard>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </PremiumBackground>
     </main>

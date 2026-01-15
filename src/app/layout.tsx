@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prisma",
+  title: "CallHero AI Reception",
   description: "Template starter (placeholder)",
   icons: {
     icon: "/prismalogobig.png",
