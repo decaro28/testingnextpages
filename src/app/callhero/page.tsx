@@ -76,16 +76,16 @@ export default function CallHeroPage() {
         imageBrightness: 1.55,
       },
       {
+        title: "Sounds Human",
+        description: "Surprisingly natural and expressive, give it a try for yourself.",
+        imageSrc: "/human1.jpg",
+        imageBrightness: 1.06,
+      },
+      {
         title: "Boosts Revenue",
         description: "Captures 25-50% more qualified appointments on average.",
         imageSrc: "/rev1.jpg",
         imageBrightness: 0.79,
-      },
-      {
-        title: "Feels Human",
-        description: "Surprisingly natural and expressive, give it a try for yourself.",
-        imageSrc: "/human1.jpg",
-        imageBrightness: 1.06,
       },
     ],
     [],
@@ -154,21 +154,21 @@ export default function CallHeroPage() {
 
         <section className="relative pb-24 pt-24 text-foreground">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {features.map((feature, index) => (
                 <div
                   key={feature.title}
                   onMouseEnter={() => setHoveredFeature(index)}
                   onMouseLeave={() => setHoveredFeature(null)}
                   className={cn(
-                    "transition-all duration-300",
+                    "mx-auto w-full max-w-sm transition-all duration-300 sm:max-w-none",
                     hoveredFeature !== null &&
                       hoveredFeature !== index &&
                       "scale-[0.98] opacity-60 saturate-75",
                   )}
                 >
                   <GlareCard containerClassName="max-w-none">
-                    <div className="group relative flex h-full flex-col items-center justify-between px-6 py-8 text-center sm:px-8 sm:py-10">
+                    <div className="group relative flex h-full flex-col items-center justify-between px-5 py-7 text-center sm:px-8 sm:py-10">
                       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[calc(var(--radius)-1px)]">
                         <img
                           src={feature.imageSrc}
@@ -184,14 +184,14 @@ export default function CallHeroPage() {
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/20 to-slate-950/70" />
                         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/12 via-transparent to-rose-500/12 opacity-70" />
                       </div>
-                      <h3 className="relative z-10 text-2xl font-extrabold tracking-tight sm:text-3xl">
+                      <h3 className="relative z-10 text-xl font-extrabold tracking-tight sm:text-3xl">
                         <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_22px_rgba(0,0,0,0.8))]">
                           <span className="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-rose-300 bg-clip-text text-transparent">
                             {feature.title}
                           </span>
                         </span>
                       </h3>
-                      <p className="relative z-10 mt-5 max-w-[34ch] text-sm leading-relaxed text-white/90 sm:mt-6 sm:text-base">
+                      <p className="relative z-10 mt-4 max-w-[34ch] text-[0.95rem] leading-relaxed text-white/90 sm:mt-6 sm:text-base">
                         <span className="inline-block [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.95))_drop-shadow(0_0_20px_rgba(0,0,0,0.8))]">
                           {feature.description}
                         </span>
