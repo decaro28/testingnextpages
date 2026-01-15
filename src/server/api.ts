@@ -1,11 +1,14 @@
 // src/server/api.ts
 export function jsonError(err: unknown) {
-  const status =
-    typeof (err as any)?.status === "number" && Number.isInteger((err as any).status)
-      ? (err as any).status
-      : 500;
+  const errRecord =
+    typeof err === "object" && err !== null ? (err as Record<string, unknown>) : null;
 
-  const message = (err as any)?.message ? String((err as any).message) : "Unknown error";
+  const statusValue = errRecord?.status;
+  const status =
+    typeof statusValue === "number" && Number.isInteger(statusValue) ? statusValue : 500;
+
+  const messageValue = errRecord?.message;
+  const message = messageValue ? String(messageValue) : "Unknown error";
 
   return Response.json({ error: message }, { status });
 }

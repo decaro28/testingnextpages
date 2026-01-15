@@ -19,6 +19,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        callheroGradient:
+          "bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 text-white hover:opacity-90",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -60,3 +62,73 @@ function Button({
 }
 
 export { Button, buttonVariants }
+
+type MagicBorderProps = {
+  className?: string
+  innerClassName?: string
+  children: React.ReactNode
+}
+
+const callHeroSpinGradient =
+  "bg-[conic-gradient(from_90deg_at_50%_50%,#6366f1_0%,#d946ef_50%,#f43f5e_100%)]"
+
+function MagicBorder({ className, innerClassName, children }: MagicBorderProps) {
+  return (
+    <span
+      className={cn(
+        "group relative inline-flex overflow-hidden rounded-full p-[1px] focus-within:outline-none focus-within:ring-2 focus-within:ring-slate-400 focus-within:ring-offset-2 focus-within:ring-offset-slate-50",
+        className
+      )}
+    >
+      <span
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-[-1000%] animate-[spin_2s_linear_infinite] motion-reduce:animate-none",
+          callHeroSpinGradient
+        )}
+      />
+      <Slot
+        className={cn(
+          "relative z-10 inline-flex items-center justify-center rounded-full",
+          innerClassName
+        )}
+      >
+        {children}
+      </Slot>
+    </span>
+  )
+}
+
+type MagicButtonProps = React.ComponentProps<typeof Button> & {
+  wrapperClassName?: string
+}
+
+function MagicBorderButton({
+  wrapperClassName,
+  className,
+  ...props
+}: MagicButtonProps) {
+  return (
+    <MagicBorder className={wrapperClassName}>
+      <Button className={cn("h-full w-full", className)} {...props} />
+    </MagicBorder>
+  )
+}
+
+function MagicGradientButton({
+  wrapperClassName,
+  className,
+  ...props
+}: Omit<MagicButtonProps, "variant">) {
+  return (
+    <MagicBorder className={wrapperClassName}>
+      <Button
+        variant="callheroGradient"
+        className={cn("h-full w-full", className)}
+        {...props}
+      />
+    </MagicBorder>
+  )
+}
+
+export { MagicBorder, MagicBorderButton, MagicGradientButton }

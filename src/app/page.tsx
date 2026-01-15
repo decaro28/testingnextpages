@@ -1,4 +1,4 @@
-import { HeroIntro } from "../components/gsap/HeroIntro";
+import { HeroIntro } from "@/components/gsap/HeroIntro";
 
 export default function Home() {
   return (

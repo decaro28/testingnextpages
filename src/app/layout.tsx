@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "next_template",
+  title: "Prisma",
   description: "Template starter (placeholder)",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/prismalogo.png",
   },
 };
 
