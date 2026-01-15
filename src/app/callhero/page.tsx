@@ -19,6 +19,19 @@ import {
   NavbarLogo,
 } from "@/components/gsap/resizable-navbar";
 
+function PhoneSolidIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h2.062a1.5 1.5 0 0 1 1.458 1.087l.7 2.45a1.5 1.5 0 0 1-.41 1.533l-1.04 1.04a10.98 10.98 0 0 0 5.66 5.66l1.04-1.04a1.5 1.5 0 0 1 1.533-.41l2.45.7A1.5 1.5 0 0 1 18 14.438V16.5A1.5 1.5 0 0 1 16.5 18H15c-7.18 0-13-5.82-13-13V3.5Z" />
+    </svg>
+  );
+}
+
 export default function CallHeroPage() {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
@@ -116,7 +129,10 @@ export default function CallHeroPage() {
                   wrapperClassName="h-11 rounded-full"
                   className="rounded-full px-7"
                 >
-                  <a href="tel:+14168071489">Call Our Demo Agent</a>
+                  <a href="tel:+14168071489">
+                    <PhoneSolidIcon className="size-4" />
+                    Call Our Demo Agent
+                  </a>
                 </MagicBorderButton>
               </div>
 
@@ -194,9 +210,12 @@ function CallHeroNavbar({
         <div className="relative z-20 flex items-center gap-2">
           <MagicBorder
             className="rounded-full"
-            innerClassName="px-4 py-2 text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 group-hover:-translate-y-0.5 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
+            innerClassName="gap-2 px-4 py-2 text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 group-hover:-translate-y-0.5 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
           >
-            <a href="tel:+14168071489">Call Demo</a>
+            <a href="tel:+14168071489">
+              <PhoneSolidIcon className="size-4" />
+              Call Demo
+            </a>
           </MagicBorder>
         </div>
       </NavBody>
@@ -229,9 +248,10 @@ function CallHeroNavbar({
           <div className="mt-2 flex w-full flex-col gap-2">
             <MagicBorder
               className="w-full rounded-full"
-              innerClassName="w-full px-4 py-2 text-center text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
+              innerClassName="w-full gap-2 px-4 py-2 text-center text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
             >
               <a href="tel:+14168071489" onClick={() => setIsOpen(false)}>
+                <PhoneSolidIcon className="size-4" />
                 Call Demo
               </a>
             </MagicBorder>
