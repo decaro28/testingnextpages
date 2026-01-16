@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { MagicBorder, MagicBorderButton } from "@/components/ui/button";
 import { PremiumBackground } from "@/components/animate-ui/components/backgrounds/premium";
 import { GlareCard } from "@/components/gsap/glare-card";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { cn } from "@/lib/utils";
 import {
   MobileNav,
@@ -134,7 +135,7 @@ export default function CallHeroPage() {
                     wrapperClassName="h-12 rounded-full sm:h-14"
                     className="rounded-full px-8 text-base sm:px-10 sm:text-lg"
                   >
-                    <a href="tel:+14168071489">
+                    <a href="tel:+16476975601">
                       <PhoneSolidIcon className="size-4" />
                       Call Our Demo Agent
                     </a>
@@ -203,6 +204,189 @@ export default function CallHeroPage() {
             </div>
           </div>
         </section>
+
+        <section className="relative pb-24 pt-6 text-foreground">
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.35),rgba(14,14,24,0)_70%)] blur-3xl" />
+            <div className="absolute bottom-0 right-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.28),rgba(14,14,24,0)_70%)] blur-3xl" />
+          </div>
+          <ContainerScroll
+            titleComponent={
+              <div className="mx-auto max-w-3xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/60 sm:text-sm">
+                  Clear signal
+                </p>
+                <h2 className="mt-4 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                  <span className="bg-gradient-to-r from-indigo-300 via-fuchsia-200 to-rose-300 bg-clip-text text-transparent">
+                    Transparent Dashboards
+                  </span>
+                </h2>
+              </div>
+            }
+          >
+            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#0b0b14]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.22),rgba(11,11,20,0)_55%)]" />
+              <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.16),rgba(11,11,20,0)_70%)]" />
+              <div className="relative z-10 flex h-full flex-col gap-4 p-4 md:p-6">
+                <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white/80 backdrop-blur">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-400 via-fuchsia-400 to-rose-400" />
+                    <div>
+                      <p className="text-sm font-semibold text-white">Boost vs. Default</p>
+                      <p className="text-xs text-white/60">Baseline compared to AI-run ops</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-white/60">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2 py-1">
+                      30 days
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2 py-1">
+                      Live
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid flex-1 grid-cols-12 gap-4">
+                  <div className="col-span-12">
+                    <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span>Lift by metric</span>
+                        <span>Against default routing</span>
+                      </div>
+                      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        {[
+                          {
+                            label: "Booked appointments",
+                            value: "+42%",
+                            progress: 76,
+                          },
+                          { label: "Qualified leads", value: "+31%", progress: 63 },
+                          {
+                            label: "Recovered after-hours",
+                            value: "+58%",
+                            progress: 88,
+                          },
+                          {
+                            label: "Avg. response time",
+                            value: "-72%",
+                            progress: 92,
+                          },
+                          {
+                            label: "Money saved",
+                            value: "$312k",
+                            progress: 71,
+                          },
+                        ].map((item) => (
+                          <div
+                            key={item.label}
+                            className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.35)]"
+                          >
+                            <div className="flex items-start justify-between">
+                              <span className="text-sm text-white/80">
+                                {item.label}
+                              </span>
+                              <span className="text-base font-semibold text-white">
+                                {item.value}
+                              </span>
+                            </div>
+                            <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                              <div
+                                style={{ width: `${item.progress}%` }}
+                                className="h-full rounded-full bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-rose-400"
+                              />
+                            </div>
+                            <div className="mt-3 flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.25em] text-white/40">
+                              <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
+                              Boosted
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <div className="flex items-center justify-between text-xs text-white/60">
+                          <span>Booking rate comparison</span>
+                          <span>Default vs AI</span>
+                        </div>
+                        <div className="mt-4 h-40 w-full">
+                          <svg
+                            viewBox="0 0 300 140"
+                            className="h-full w-full"
+                            preserveAspectRatio="none"
+                            aria-hidden="true"
+                          >
+                            <defs>
+                              <linearGradient id="aiLine" x1="0" x2="1" y1="0" y2="0">
+                                <stop offset="0%" stopColor="#818cf8" />
+                                <stop offset="50%" stopColor="#e879f9" />
+                                <stop offset="100%" stopColor="#f472b6" />
+                              </linearGradient>
+                            </defs>
+                            <path
+                              d="M0 110 L40 105 L80 100 L120 95 L160 90 L200 85 L240 78 L280 70 L300 66"
+                              fill="none"
+                              stroke="rgba(255,255,255,0.35)"
+                              strokeWidth="3"
+                            />
+                            <path
+                              d="M0 115 L40 108 L80 95 L120 88 L160 76 L200 62 L240 52 L280 42 L300 36"
+                              fill="none"
+                              stroke="url(#aiLine)"
+                              strokeWidth="4"
+                            />
+                          </svg>
+                        </div>
+                        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60">
+                          <div className="flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-white/40" />
+                            Default 21%
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-rose-400" />
+                            AI assistant 63%
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-5 text-xs text-white/50">
+                        Baseline uses default phone tree + voicemail.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-span-12">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-white/80 backdrop-blur">
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span>Recent recordings</span>
+                        <span>Outcome</span>
+                      </div>
+                      <div className="mt-4 space-y-3 text-sm">
+                        {[
+                          { label: "Call 1184 • 03:12", outcome: "Booked" },
+                          { label: "Call 1183 • 01:47", outcome: "Qualified" },
+                          { label: "Call 1182 • 00:53", outcome: "Follow-up" },
+                          { label: "Call 1181 • 02:05", outcome: "Won" },
+                        ].map((call) => (
+                          <div
+                            key={call.label}
+                            className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                          >
+                            <span className="text-white/80">{call.label}</span>
+                            <span className="rounded-full border border-white/10 bg-white/10 px-2 py-1 text-xs text-white">
+                              {call.outcome}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 h-px w-full bg-white/10" />
+                      <p className="mt-3 text-xs text-white/60">
+                        Tap any call to audit transcript and resolution.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ContainerScroll>
+        </section>
       </PremiumBackground>
     </main>
   );
@@ -225,7 +409,7 @@ function CallHeroNavbar({
             className="rounded-full"
             innerClassName="gap-2 px-4 py-2 text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 group-hover:-translate-y-0.5 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
           >
-            <a href="tel:+14168071489">
+            <a href="tel:+16476975601">
               <PhoneSolidIcon className="size-4" />
               Call Demo
             </a>
@@ -263,7 +447,7 @@ function CallHeroNavbar({
               className="w-full rounded-full"
               innerClassName="w-full gap-2 px-4 py-2 text-center text-sm font-bold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition duration-200 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500"
             >
-              <a href="tel:+14168071489" onClick={() => setIsOpen(false)}>
+              <a href="tel:+16476975601" onClick={() => setIsOpen(false)}>
                 <PhoneSolidIcon className="size-4" />
                 Call Demo
               </a>
