@@ -1,6 +1,13 @@
 "use client";
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "motion/react";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  MotionValue,
+  useSpring,
+  useReducedMotion,
+} from "motion/react";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -12,8 +19,10 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start end", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -27,12 +36,18 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [0.92, 1] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.3,
+  });
+  const progress = shouldReduceMotion ? scrollYProgress : smoothProgress;
+  const rotate = useTransform(progress, [0, 1], [isMobile ? 10 : 20, 0]);
+  const scale = useTransform(progress, [0, 1], scaleDimensions());
+  const translate = useTransform(progress, [0, 1], [0, isMobile ? -40 : -100]);
 
   return (
     <div

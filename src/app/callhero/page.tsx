@@ -247,13 +247,13 @@ export default function CallHeroPage() {
                 </div>
 
                 <div className="grid flex-1 grid-cols-12 gap-4">
-                  <div className="col-span-12">
+                  <div className="col-span-12 md:col-span-7">
                     <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                       <div className="flex items-center justify-between text-xs text-white/60">
                         <span>Lift by metric</span>
                         <span>Against default routing</span>
                       </div>
-                      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {[
                           {
                             label: "Booked appointments",
@@ -272,9 +272,14 @@ export default function CallHeroPage() {
                             progress: 92,
                           },
                           {
-                            label: "Money saved",
+                            label: "Revenue Increase",
                             value: "$312k",
                             progress: 71,
+                          },
+                          {
+                            label: "Answer rate",
+                            value: "+64%",
+                            progress: 82,
                           },
                         ].map((item) => (
                           <div
@@ -302,58 +307,58 @@ export default function CallHeroPage() {
                           </div>
                         ))}
                       </div>
-                      <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
-                        <div className="flex items-center justify-between text-xs text-white/60">
-                          <span>Booking rate comparison</span>
-                          <span>Default vs AI</span>
-                        </div>
-                        <div className="mt-4 h-40 w-full">
-                          <svg
-                            viewBox="0 0 300 140"
-                            className="h-full w-full"
-                            preserveAspectRatio="none"
-                            aria-hidden="true"
-                          >
-                            <defs>
-                              <linearGradient id="aiLine" x1="0" x2="1" y1="0" y2="0">
-                                <stop offset="0%" stopColor="#818cf8" />
-                                <stop offset="50%" stopColor="#e879f9" />
-                                <stop offset="100%" stopColor="#f472b6" />
-                              </linearGradient>
-                            </defs>
-                            <path
-                              d="M0 110 L40 105 L80 100 L120 95 L160 90 L200 85 L240 78 L280 70 L300 66"
-                              fill="none"
-                              stroke="rgba(255,255,255,0.35)"
-                              strokeWidth="3"
-                            />
-                            <path
-                              d="M0 115 L40 108 L80 95 L120 88 L160 76 L200 62 L240 52 L280 42 L300 36"
-                              fill="none"
-                              stroke="url(#aiLine)"
-                              strokeWidth="4"
-                            />
-                          </svg>
-                        </div>
-                        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60">
-                          <div className="flex items-center gap-2">
-                            <span className="h-2 w-2 rounded-full bg-white/40" />
-                            Default 21%
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-rose-400" />
-                            AI assistant 63%
-                          </div>
-                        </div>
-                      </div>
                       <div className="mt-5 text-xs text-white/50">
                         Baseline uses default phone tree + voicemail.
                       </div>
                     </div>
                   </div>
 
-                  <div className="col-span-12">
+                  <div className="col-span-12 flex flex-col gap-4 md:col-span-5">
                     <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-white/80 backdrop-blur">
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span>Booking rate comparison</span>
+                        <span>Default vs AI</span>
+                      </div>
+                      <div className="mt-4 h-40 w-full">
+                        <svg
+                          viewBox="0 0 300 140"
+                          className="h-full w-full"
+                          preserveAspectRatio="none"
+                          aria-hidden="true"
+                        >
+                          <defs>
+                            <linearGradient id="aiLine" x1="0" x2="1" y1="0" y2="0">
+                              <stop offset="0%" stopColor="#818cf8" />
+                              <stop offset="50%" stopColor="#e879f9" />
+                              <stop offset="100%" stopColor="#f472b6" />
+                            </linearGradient>
+                          </defs>
+                          <path
+                            d="M0 110 L40 105 L80 100 L120 95 L160 90 L200 85 L240 78 L280 70 L300 66"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.35)"
+                            strokeWidth="3"
+                          />
+                          <path
+                            d="M0 115 L40 108 L80 95 L120 88 L160 76 L200 62 L240 52 L280 42 L300 36"
+                            fill="none"
+                            stroke="url(#aiLine)"
+                            strokeWidth="4"
+                          />
+                        </svg>
+                      </div>
+                      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60">
+                        <div className="flex items-center gap-2">
+                          <span className="h-2 w-2 rounded-full bg-white/40" />
+                          Default 21%
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-rose-400" />
+                          AI assistant 63%
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 p-4 text-white/80 backdrop-blur">
                       <div className="flex items-center justify-between text-xs text-white/60">
                         <span>Recent recordings</span>
                         <span>Outcome</span>
